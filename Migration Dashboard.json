@@ -800,8 +800,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -895,8 +894,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -991,8 +989,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1087,8 +1084,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1106,7 +1102,7 @@
         "x": 12,
         "y": 32
       },
-      "id": 8,
+      "id": 9,
       "options": {
         "legend": {
           "calcs": [],
@@ -1126,14 +1122,14 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "(sum by(instance) (rate(node_network_receive_bytes_total{device=\"ens1f0\"}[1m]) * on(instance, device) node_network_info{operstate=\"up\"})) +\n(sum by(instance) (rate(node_network_transmit_bytes_total{device=\"ens1f0\"}[1m]) * on(instance, device) node_network_info{operstate=\"up\"}))",
+          "expr": "(sum by(instance) (rate(node_network_receive_bytes_total{device=\"br-migration\"}[1m]) * on(instance, device) node_network_info{operstate=\"up\"})) +\n(sum by(instance) (rate(node_network_transmit_bytes_total{device=\"br-migration\"}[1m]) * on(instance, device) node_network_info{operstate=\"up\"}))",
           "instant": false,
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
         }
       ],
-      "title": "bandwidth by Host - iscsi",
+      "title": "bandwidth by Host - multus bridge",
       "type": "timeseries"
     },
     {
@@ -1183,8 +1179,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1194,32 +1189,7 @@
           },
           "unit": "Bps"
         },
-        "overrides": [
-          {
-            "__systemRef": "hideSeriesFrom",
-            "matcher": {
-              "id": "byNames",
-              "options": {
-                "mode": "exclude",
-                "names": [
-                  "d17-h32-000-r650"
-                ],
-                "prefix": "All except:",
-                "readOnly": true
-              }
-            },
-            "properties": [
-              {
-                "id": "custom.hideFrom",
-                "value": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": true
-                }
-              }
-            ]
-          }
-        ]
+        "overrides": []
       },
       "gridPos": {
         "h": 8,
@@ -1247,7 +1217,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "(sum by(instance) (rate(node_network_receive_bytes_total{device=\"ens1f1\"}[1m]) * on(instance, device) node_network_info{operstate=\"up\"})) +\n(sum by(instance) (rate(node_network_transmit_bytes_total{device=\"ens1f1\"}[1m]) * on(instance, device) node_network_info{operstate=\"up\"}))",
+          "expr": "(sum by(instance) (rate(node_network_receive_bytes_total{device=\"eno12409np1\"}[1m]) * on(instance, device) node_network_info{operstate=\"up\"})) +\n(sum by(instance) (rate(node_network_transmit_bytes_total{device=\"eno12409np1\"}[1m]) * on(instance, device) node_network_info{operstate=\"up\"}))",
           "instant": false,
           "legendFormat": "__auto",
           "range": true,
@@ -1304,8 +1274,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1323,7 +1292,7 @@
         "x": 12,
         "y": 40
       },
-      "id": 9,
+      "id": 8,
       "options": {
         "legend": {
           "calcs": [],
@@ -1343,14 +1312,15 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "(sum by(instance) (rate(node_network_receive_bytes_total{device=\"ens2f0np0\"}[1m]) * on(instance, device) node_network_info{operstate=\"up\"})) +\n(sum by(instance) (rate(node_network_transmit_bytes_total{device=\"ens2f0np0\"}[1m]) * on(instance, device) node_network_info{operstate=\"up\"}))",
+          "expr": "(sum by(instance) (rate(node_network_receive_bytes_total{device=\"ens1f0\"}[1m]) * on(instance, device) node_network_info{operstate=\"up\"})) +\n(sum by(instance) (rate(node_network_transmit_bytes_total{device=\"ens1f0\"}[1m]) * on(instance, device) node_network_info{operstate=\"up\"}))",
+          "hide": true,
           "instant": false,
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
         }
       ],
-      "title": "bandwidth by Host - multus bridge",
+      "title": "bandwidth by Host - iscsi (not applicable)",
       "type": "timeseries"
     },
     {
@@ -1400,8 +1370,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1509,8 +1478,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "super-light-blue",
@@ -1572,213 +1540,22 @@
       ],
       "title": "VM network",
       "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "never",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 56
-      },
-      "id": 13,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "mode": "multi",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "expr": "topk(10,sum(node_namespace_pod_container:container_cpu_usage_seconds_total:sum_irate{namespace=~\"simple-fio\"}) by (pod))",
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "CPU Usage - Top 10 (migration-vms)",
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "never",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "decbytes"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 56
-      },
-      "id": 14,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "mode": "multi",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "expr": "topk(10,sum(container_memory_working_set_bytes{ cluster=\"\", namespace=~\"simple-fio\"}) by (pod))",
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Memory Usage - Top 10 (migration-vms)",
-      "type": "timeseries"
     }
   ],
-  "refresh": "",
+  "refresh": "10s",
   "schemaVersion": 39,
   "tags": [],
   "templating": {
     "list": []
   },
   "time": {
-    "from": "2026-03-10T18:51:30.116Z",
-    "to": "2026-03-10T19:22:14.326Z"
+    "from": "now-5m",
+    "to": "now"
   },
   "timepicker": {},
   "timezone": "browser",
   "title": "Migration Dashboard",
   "uid": "dei6icsov1hxcc",
-  "version": 11,
+  "version": 6,
   "weekStart": ""
 }
